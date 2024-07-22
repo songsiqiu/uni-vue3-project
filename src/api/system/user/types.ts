@@ -7,3 +7,10 @@ export interface UserAndCodeReq {
 export interface UserAndCodeResp {
     token: string;
 }
+/** 用户基本信息  */
+export interface BaseUserInfo {
+    id: number;
+    username: string;
+    avatar: string;
+    nickname: string;
+}

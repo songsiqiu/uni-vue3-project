@@ -15,6 +15,14 @@ export default defineConfig({
             resolvers: [VantResolver()],
         }),
     ],
+    css: {
+        postcss: {
+            plugins: [
+                require('autoprefixer'),
+                require('tailwindcss'),
+            ],
+        },
+    },
     server:{
         host: '0.0.0.0',
         port: 5173,

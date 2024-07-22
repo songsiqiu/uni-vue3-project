@@ -3,6 +3,8 @@ import App from "./App.vue";
 
 import setupPinia from './store'
 
+import '@/style/index.scss'
+
 export function createApp() {
   const app = createSSRApp(App);
 
