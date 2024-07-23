@@ -43,7 +43,7 @@ const useUserState = defineStore('userState', () => {
         try {
             loginLoading.value = true
             const {data} = await verificationUserAndCode(loginInfo)
-            setUserTokenInfo(data)
+            setUserTokenInfo(data.token)
 
             // 获取用户基本信息
             await refreshUserInfo()

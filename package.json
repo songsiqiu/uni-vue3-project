@@ -56,10 +56,12 @@
     "@dcloudio/uni-mp-xhs": "3.0.0-4010520240507001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-4010520240507001",
     "axios": "^1.7.2",
+    "gsap": "^3.12.5",
     "pinia": "^2.1.7",
     "vant": "^4.9.2",
     "vue": "3.4.21",
-    "vue-i18n": "^9.1.9"
+    "vue-i18n": "^9.1.9",
+    "weixin-js-sdk": "^1.6.5"
   },
   "devDependencies": {
     "@dcloudio/types": "^3.4.8",

@@ -3,11 +3,53 @@
 		{
 			"path": "pages/login/index",
 			"style": {
+				"navigationBarTitleText": "登录页"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/rank/index",
+			"style": {
+				"navigationBarTitleText": "排行榜"
+			}
+		},
+		{
+			"path": "pages/my/index",
+			"style": {
+				"navigationBarTitleText": "我的"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationStyle": "custom",
 		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#666",
+		"selectedColor": "#007AFF",
+		"backgroundColor": "#fff",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/home-unselect.png",
+				"selectedIconPath": "static/home-select.png"
+			},
+			{
+				"pagePath": "pages/rank/index",
+				"iconPath": "static/rank-unselect.png",
+				"selectedIconPath": "static/rank-selected.png"
+			},
+			{
+				"pagePath": "pages/my/index",
+				"iconPath": "static/my-unselect.png",
+				"selectedIconPath": "static/my-selected.png"
+			}
+		]
 	}
 }
