@@ -1,0 +1,11 @@
+.common-page-containerBar {
+  overflow-y: auto;
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+}
+.common-content {
+  padding: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
