@@ -15,7 +15,7 @@
     },
     "lib": ["esnext", "dom"],
     "types": ["@dcloudio/types"],
-    "importsNotUsedAsValues": "preserve"
+    "verbatimModuleSyntax ": "preserve"
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json"}]
