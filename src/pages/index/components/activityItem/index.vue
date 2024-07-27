@@ -5,7 +5,7 @@ const props = defineProps<ActiveListResp>()
 </script>
 
 <template>
-  <view class="box relative">
+  <view class="box relative shadow-sm">
     <view class="absolute top-0 left-0">
       <view v-if="props.status === 1" class="status bg-[rgba(18,164,242,0.4)]">报名中</view>
       <view v-if="props.status === 2" class="status bg-[rgba(235,118,22,0.6)]">投票中</view>
