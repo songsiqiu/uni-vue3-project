@@ -15,7 +15,8 @@ export function getUserInfo() {
 }
 /** 密码登录 */
 export function verificationUserAndCode(data: UserAndCodeReq) {
-    return service.post<ApiResponse<UserAndCodeResp>>(SystemUserApi.verificationUserAndCode,data,{
-        isAuth:false
+    return service.post<UserAndCodeResp>(SystemUserApi.verificationUserAndCode, data, {
+      isAuth: false,
+      maskingErrorInterceptors:true
     })
 }

@@ -28,17 +28,18 @@ export function handleInnerCodeErr(respData:ApiResponse) {
  * 处理http响应码为200的响应
  */
 export const handleNormalResponse = async (resp:AxiosResponse<ApiResponse>) => {
-    // 处理已知错误码
-    if(resp?.data?.code) {
-        switch (resp.data.code) {
-            case ErrCode.UNAUTHORIZED:
-                // 执行登出操作
-                break
-        }
+  // 处理已知错误码
+  if (resp?.data?.code) {
+    switch (resp.data.code) {
+      case ErrCode.UNAUTHORIZED:
+        // 执行登出操作
+        break
     }
-
-    // 处理resp.data.success为false的情况
-    return handleInnerCodeErr(resp.data)
+  }
+  // 如果发现屏蔽内部错误处理标记打开，则直接放行
+  if (resp.config.maskingErrorInterceptors) return true
+  // 处理resp.data.success为false的情况
+  return handleInnerCodeErr(resp.data)
 }
 
 /**
