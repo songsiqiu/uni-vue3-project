@@ -5,7 +5,6 @@ import { getActiveList } from '@/api/active/list'
 import { ActiveListResp } from '@/api/active/list/types'
 import ActivityItem from '@/pages/index/components/activityItem/index.vue'
 
-const value = ref('')
 const notice = ref(false)
 
 const activeList = ref<ActiveListResp[]>([])

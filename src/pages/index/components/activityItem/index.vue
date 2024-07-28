@@ -2,6 +2,13 @@
 import { ActiveListResp } from '@/api/active/list/types'
 
 const props = defineProps<ActiveListResp>()
+
+/** 点击跳转到活动详情 */
+const handleTap = () => {
+  uni.navigateTo({
+    url: `/subPages/pages/activity/detail/index?id=${props.id}`
+  })
+}
 </script>
 
 <template>
@@ -11,11 +18,11 @@ const props = defineProps<ActiveListResp>()
       <view v-if="props.status === 2" class="status bg-[rgba(235,118,22,0.6)]">投票中</view>
       <view v-else class="status bg-[rgba(217,0,0,0.4)]">已结束</view>
     </view>
-    <img v-if="props.imgUrl" class="w-full h-[115px] object-cover" :src="props.imgUrl" alt="" />
-    <img v-else class="w-full h-[115px] object-cover" src="@/static/active-default.png" alt="" />
+    <img v-if="props.imgUrl" class="w-full h-[115px] object-cover" @tap="handleTap" :src="props.imgUrl" alt="" />
+    <img v-else class="w-full h-[115px] object-cover" @tap="handleTap" src="@/static/active-default.png" alt="" />
     <view class="p-[5px]">
-      <view class="title mt-1">{{ props.title }}</view>
-      <view class="personNum mt-[5px] mb-[15px]">
+      <view class="title mt-1" @tap="handleTap">{{ props.title }}</view>
+      <view class="personNum mt-[5px] mb-[15px]" @tap="handleTap">
         <span class="font-bold text-[15px]">报名人数</span>：<span class="text-[#12A4F2] text-base font-medium"
           >{{ props.personNum }}人</span
         >
@@ -27,7 +34,7 @@ const props = defineProps<ActiveListResp>()
         </view>
         <div v-if="props.status === 1" class="submit-btn bg-[#12a4f2]">我要报名</div>
         <div v-else-if="props.status === 2" class="submit-btn bg-[#F59D54]">我要投票</div>
-        <div v-else class="submit-btn bg-[#FA6969]">查看</div>
+        <div v-else class="submit-btn bg-[#FA6969]" @tap="handleTap">查看</div>
       </view>
     </view>
   </view>
