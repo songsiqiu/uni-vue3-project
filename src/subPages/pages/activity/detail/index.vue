@@ -11,7 +11,7 @@ const props = withDefaults(
 )
 
 /** 判断是活动详情, 还是报名页面 */
-const isDetail = ref(false)
+const isDetail = ref(true)
 const handleSwitchModule = () => {
   isDetail.value = false
   console.log('handleSwitchModule', isDetail.value)
@@ -28,6 +28,13 @@ const handleImgUploadSuccess = (res: any) => {
 }
 const handleImgUploadFail = (res: any) => {
   console.log('handleImgUploadFail', res)
+}
+
+/** 跳转到活动海报页面 */
+const handleJumpPoster = () => {
+  uni.navigateTo({
+    url: '/subPages/pages/activity/poster/index',
+  })
 }
 </script>
 
@@ -66,7 +73,7 @@ const handleImgUploadFail = (res: any) => {
         </view>
       </view>
       <view class="btn-group p-[12px] flex gap-4">
-        <van-button type="warning" round>活动海报</van-button>
+        <van-button type="warning" round @tap="handleJumpPoster">活动海报</van-button>
         <van-button type="primary" round @click="handleSwitchModule">
           <view class="flex gap-2 items-center justify-center">
             <span>我要报名</span>

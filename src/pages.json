@@ -34,6 +34,12 @@
           "style": {
             "navigationBarTitleText": "活动详情"
           }
+        },
+        {
+          "path": "pages/activity/poster/index",
+          "style": {
+            "navigationBarTitleText": "活动海报"
+          }
         }
       ]
     }
