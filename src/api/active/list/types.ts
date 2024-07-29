@@ -20,3 +20,24 @@ export interface ActiveVoteRankResp {
   status:boolean
   [property: string]: any
 }
+
+/** 礼物列表 */
+export interface ActiveGiftListResp {
+  /**
+   * ID 编号
+   */
+  id: string
+  /**
+   * 名字
+   */
+  name: string
+  /**
+   * 礼物url
+   */
+  imgUrl: string
+  /**
+   * 价格
+   */
+  price: string
+  [property: string]: any
+}

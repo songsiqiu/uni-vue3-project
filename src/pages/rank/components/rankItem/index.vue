@@ -35,6 +35,12 @@ const handleVote = (event: MouseEvent) => {
   showPlusOne(event)
   status.value = true
 }
+
+/** 助力 */
+const emit = defineEmits(['support'])
+const handleSupport = () => {
+  emit('support', props.id)
+}
 </script>
 
 <template>
@@ -63,7 +69,7 @@ const handleVote = (event: MouseEvent) => {
       </view>
       <view class="right flex gap-1 text-[#12A4F2]">
         <img src="@/static/rocket.png" class="w-[13px] h-[13px] mt-[2px]" alt="" srcset="" />
-        <span class="text-[12px]">为TA助力</span>
+        <span class="text-[12px]" @click="handleSupport">为TA助力</span>
       </view>
     </view>
   </view>
