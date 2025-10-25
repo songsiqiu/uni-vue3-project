@@ -2,7 +2,6 @@
 import { ref, onMounted } from 'vue'
 import useUserState from '@/store/userState'
 import { gsap } from 'gsap'
-import { closeToast, showLoadingToast } from 'vant'
 
 const userState = useUserState()
 const pwd = ref('')
@@ -18,13 +17,13 @@ const getUserInfo = () => {}
 const handleLogin = async () => {
   // if (userState.getUserBaseInfo?.username) {
     await userState.signIn({
-      username: userState.getUserBaseInfo?.username,
+      username: userState.getUserBaseInfo?.username || '',
       password: pwd.value,
     })
 
-    showLoadingToast('验证中...')
+    uni.showLoading({ title: '验证中...' })
     setTimeout(() => {
-      closeToast()
+      uni.hideLoading()
       // 跳转到首页
       uni.switchTab({
         url: '/pages/index/index',
@@ -53,27 +52,24 @@ onMounted(() => {
         :src="userState.getUserBaseInfo.avatar"
       />
       <img v-else class="avatar w-32 h-32 rounded-full object-cover mb-10" src="@/static/defaultAvatar.png" alt="" />
-      <div ref="formContainer">
-        <van-form>
-          <van-cell-group inset>
-            <van-field name="用户名" label="用户名" placeholder="用户名" autocomplete="username">
-              <template #input>
-                {{ userState.getUserBaseInfo?.nickname }}
-              </template>
-            </van-field>
-            <van-field
+      <view ref="formContainer" class="w-full">
+        <view class="field-group mb-4 bg-gray-50 rounded-lg p-4">
+          <view class="field-item mb-4">
+            <text class="field-label text-gray-600 text-sm">用户名</text>
+            <view class="field-value text-base mt-1">{{ userState.getUserBaseInfo?.nickname }}</view>
+          </view>
+          <view class="field-item">
+            <text class="field-label text-gray-600 text-sm">密码</text>
+            <input
               v-model="pwd"
               type="password"
-              name="密码"
-              label="密码"
-              placeholder="密码"
-              autocomplete="new-password"
-              :rules="[{ required: true, message: '请填写密码' }]"
+              class="field-input w-full h-10 px-2 mt-1 border border-gray-200 rounded"
+              placeholder="请输入密码"
             />
-          </van-cell-group>
-        </van-form>
-      </div>
-      <van-button round block type="primary" class="submit-btn !bg-sky-500" @click="handleLogin">微信登录</van-button>
+          </view>
+        </view>
+      </view>
+      <button class="submit-btn w-full h-12 bg-sky-500 text-white rounded-full" @click="handleLogin">微信登录</button>
     </view>
   </view>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getActiveList } from '@/api/active/list'
-import { ActiveListResp } from '@/api/active/list/types'
+import type { ActiveListResp } from '@/api/active/list/types'
 import useUserState from '@/store/userState'
 import { onMounted, ref } from 'vue'
 
@@ -66,9 +66,9 @@ console.log(userBaseInfo)
             </view>
           </view>
           <view class="bottom flex items-center gap-3 mt-2">
-            <van-button type="primary" plain size="small">关闭</van-button>
-            <van-button type="primary" size="small">转发投票</van-button>
-            <van-button type="warning" size="small">投票详情</van-button>
+            <button class="flex-1 h-8 leading-8 text-center text-sm border border-sky-500 text-sky-500 rounded">关闭</button>
+            <button class="flex-1 h-8 leading-8 text-center text-sm bg-sky-500 text-white rounded">转发投票</button>
+            <button class="flex-1 h-8 leading-8 text-center text-sm bg-orange-500 text-white rounded">投票详情</button>
           </view>
         </view>
       </view>
@@ -95,11 +95,6 @@ console.log(userBaseInfo)
   padding: 6px;
   border-radius: 5px;
   background-color: #f1f1f1;
-}
-.bottom {
-  :deep(.van-button) {
-    flex: 1;
-  }
 }
 .time {
   color: #999999;

@@ -1,4 +1,4 @@
-import {BaseUserInfo} from "@/api/system/user/types";
+import type {BaseUserInfo} from "@/api/system/user/types";
 
 export interface StorageData {
     /** 当前用户token信息  */

@@ -1,6 +1,6 @@
 import { service } from '@/utils/request'
-import { ApiResponse } from '@/api/types'
-import { ActiveGiftListResp, ActiveListResp, ActiveVoteRankResp } from '@/api/active/list/types'
+import type { ApiResponse } from '@/api/types'
+import type { ActiveGiftListResp, ActiveListResp, ActiveVoteRankResp } from '@/api/active/list/types'
 
 export enum ActiveListApi {
   /** 获取活动列表 */

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { ActiveVoteRankResp } from '@/api/active/list/types'
-import { ComponentPublicInstance, ref } from 'vue'
+import type { ActiveVoteRankResp } from '@/api/active/list/types'
+import type { ComponentPublicInstance } from 'vue'
+import { ref } from 'vue'
 import gsap from 'gsap'
 
 const props = defineProps<ActiveVoteRankResp>()

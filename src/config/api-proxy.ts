@@ -1,4 +1,4 @@
-import { ProxyOptions } from 'vite'
+import type { ProxyOptions } from 'vite'
 
 const proxy: Record<string, string | ProxyOptions> = {
     /** 请求的后端地址  */

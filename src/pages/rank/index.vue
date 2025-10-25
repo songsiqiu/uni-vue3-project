@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getGiftList, getVoteRank } from '@/api/active/list'
-import { ActiveGiftListResp, ActiveVoteRankResp } from '@/api/active/list/types'
+import type { ActiveGiftListResp, ActiveVoteRankResp } from '@/api/active/list/types'
 import { onMounted, ref } from 'vue'
 import RankItem from './components/rankItem/index.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -46,8 +46,9 @@ onMounted(() => {
   <view class="content mt-[30px] p-[12px] grid grid-cols-2 gap-2">
     <RankItem v-for="item in rankData" :key="item.id" v-bind="item" @support="handleSupport"></RankItem>
   </view>
-  <van-popup v-model:show="supportShow" round position="bottom" :style="{ height: '74vh' }">
-    <view class="support-top flex justify-center items-center h-[49px] bg-[#12A4F2] text-white"> 测试测试场测试 </view>
+  <view v-if="supportShow" class="popup-overlay fixed inset-0 bg-black bg-opacity-50 z-50" @click="supportShow = false">
+    <view class="popup-content fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl" style="height: 74vh" @click.stop>
+      <view class="support-top flex justify-center items-center h-[49px] bg-[#12A4F2] text-white rounded-t-3xl"> 测试测试场测试 </view>
     <view class="top-desc p-[12px] font-bold text-[14px]"> 什么都可以加，您想买什么就买什么 </view>
 
     <Swiper>
@@ -64,7 +65,7 @@ onMounted(() => {
         </view>
       </swiper-slide>
     </Swiper>
-    <van-divider></van-divider>
+    <view class="divider w-full border-t border-gray-200 my-2"></view>
     <view class="support-desc p-[12px]">
       <view class="desc-title font-bold"> 助力介绍 </view>
       <view class="desc-content text-[#999999] text-[12px] mt-2">
@@ -72,7 +73,7 @@ onMounted(() => {
         󰀐这是内容这是内容这是内容这是 󰀐这是内容这是内容这是内容这是
       </view>
     </view>
-    <van-divider></van-divider>
+    <view class="divider w-full border-t border-gray-200 my-2"></view>
     <view class="pop-bottom flex">
       <view class="pop-bottom-left flex flex-1 gap-2">
         <view class="pop-price flex items-center">
@@ -92,7 +93,8 @@ onMounted(() => {
         <view class="bottom-btn-support flex items-center justify-center text-white"> 帮Ta助力 </view>
       </view>
     </view>
-  </van-popup>
+  </view>
+  </view>
 </template>
 
 <style lang="scss" scoped>

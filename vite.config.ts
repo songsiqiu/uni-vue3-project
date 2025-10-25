@@ -2,22 +2,26 @@ import {defineConfig} from "vite";
 import uni from "@dcloudio/vite-plugin-uni";
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import {VantResolver} from '@vant/auto-import-resolver';
-import proxy from "./src/config/proxy";
+import proxy from "./src/config/api-proxy";
 
 export default defineConfig({
   plugins: [
     uni(),
     AutoImport({
-      resolvers: [VantResolver()],
+      imports: ['vue', 'uni-app'],
     }),
     Components({
-      resolvers: [VantResolver()],
+      dts: true,
     }),
   ],
   css: {
     postcss: {
       plugins: [require('autoprefixer'), require('tailwindcss')],
+    },
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      },
     },
   },
   server: {

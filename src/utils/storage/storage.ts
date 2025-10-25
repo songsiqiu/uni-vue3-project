@@ -2,7 +2,7 @@
  * localStorage 封装
  */
 import globalConfig from "@/config/global";
-import {StorageData} from "@/utils/storage/type";
+import type {StorageData} from "@/utils/storage/type";
 
 class StorageUtil {
     /**

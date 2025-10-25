@@ -1,7 +1,6 @@
-import {ApiResponse} from "@/api/types";
-import {AxiosError, AxiosResponse} from "axios";
+import type {ApiResponse} from "@/api/types";
+import type {AxiosError, AxiosResponse} from "axios";
 import {BusinessErrCode, businessErrCodeMsgKV, ErrCode, errCodeMsgKV} from "@/utils/request/errcode";
-import { showNotify } from 'vant';
 
 
 /**
@@ -15,9 +14,9 @@ export function handleInnerCodeErr(respData:ApiResponse) {
         const outMsgInfo = businessErrCodeMsgKV[respData.code as BusinessErrCode]
         if(outMsgInfo) {
             // 提示错误信息
-            showNotify({ type: 'warning', message: respData.msg });
+            uni.showToast({ icon: 'none', title: respData.msg });
         }else {
-            showNotify({ type: 'warning', message:'服务器发生了错误，请重试' });
+            uni.showToast({ icon: 'none', title:'服务器发生了错误，请重试' });
         }
         return false
     }
@@ -53,13 +52,13 @@ export const handleHttpError = (err:AxiosError) => {
     // 展示默认错误提示信息
     const msg = errCodeMsgKV[err.response?.status as ErrCode]
     if(err.code === 'ECONNABORTED' && err.message.includes('timeout')) {
-        showNotify({ type: 'warning', message: '请求超时，请重试！' });
+        uni.showToast({ icon: 'none', title: '请求超时，请重试！' });
     }else if(err.message === 'Network Error') {
-        showNotify({ type: 'warning', message: '服务器错误或网络错误, 请稍后再试！' });
+        uni.showToast({ icon: 'none', title: '服务器错误或网络错误, 请稍后再试！' });
     }else if(msg) {
-        showNotify({ type: 'warning', message: msg });
+        uni.showToast({ icon: 'none', title: msg });
     }else {
-        showNotify({ type: 'warning', message: '服务器发出了未知错误！' });
+        uni.showToast({ icon: 'none', title: '服务器发出了未知错误！' });
     }
 
     return Promise.reject(err)

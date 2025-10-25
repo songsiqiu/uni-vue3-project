@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import StorageUtil from '@/utils/storage/storage'
-import { BaseUserInfo, UserAndCodeReq } from '@/api/system/user/types'
+import type { BaseUserInfo, UserAndCodeReq } from '@/api/system/user/types'
 import { getUserInfo, verificationUserAndCode } from '@/api/system/user'
-import { showNotify } from 'vant'
 
 const useUserState = defineStore('userState', () => {
   /** 当前登录用户token信息  */
@@ -50,9 +49,9 @@ const useUserState = defineStore('userState', () => {
       await refreshUserInfo()
 
       if (userBaseInfo.value) {
-        showNotify({
-          message: '登录成功',
-          type: 'success',
+        uni.showToast({
+          title: '登录成功',
+          icon: 'success',
         })
       }
     } finally {

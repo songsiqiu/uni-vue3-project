@@ -1,6 +1,6 @@
-import {BaseUserInfo, UserAndCodeReq, UserAndCodeResp} from "@/api/system/user/types";
+import type {BaseUserInfo, UserAndCodeReq, UserAndCodeResp} from "@/api/system/user/types";
 import {service} from "@/utils/request";
-import {ApiResponse} from "@/api/types";
+import type {ApiResponse} from "@/api/types";
 
 export enum SystemUserApi {
     /** 密码登录  */

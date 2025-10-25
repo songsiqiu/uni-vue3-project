@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ActiveListResp } from '@/api/active/list/types'
+import type { ActiveListResp } from '@/api/active/list/types'
 
 const props = defineProps<ActiveListResp>()
 

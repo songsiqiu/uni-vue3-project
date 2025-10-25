@@ -1,5 +1,6 @@
 import useUserState from '@/store/userState'
-import  { AxiosRequestConfig, AxiosHeaders } from 'axios'
+import type { AxiosRequestConfig } from 'axios'
+import { AxiosHeaders } from 'axios'
 import { HeaderKey } from './header'
 
 /**

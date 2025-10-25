@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { handleToken } from '@/utils/request/requestHandler'
 import { handleHttpError, handleNormalResponse } from '@/utils/request/responseHandler'
-import { showNotify } from 'vant'
 
 export const service = axios.create({
   baseURL: '/api',
@@ -24,7 +23,7 @@ service.interceptors.response.use(
     if (axios.isAxiosError(err)) {
       return handleHttpError(err)
     }
-    showNotify({ type: 'warning', message: '网络请求发生了意料之外的错误' })
+    uni.showToast({ icon: 'none', title: '网络请求发生了意料之外的错误' })
     return Promise.reject(err)
   }
 )

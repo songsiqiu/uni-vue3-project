@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { onMounted } from 'vue'
 import { getActiveList } from '@/api/active/list'
-import { ActiveListResp } from '@/api/active/list/types'
+import type { ActiveListResp } from '@/api/active/list/types'
 import ActivityItem from '@/pages/index/components/activityItem/index.vue'
 
 const notice = ref(false)
